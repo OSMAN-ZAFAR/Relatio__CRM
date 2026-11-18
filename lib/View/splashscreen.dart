@@ -3,9 +3,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:reltio/Theme/colors.dart';
-import 'package:reltio/View/Intro_Page/customer_login.dart';
-import 'package:reltio/Widgets/BoldText.dart';
-import 'package:reltio/Widgets/LightText.dart';
+import 'package:reltio/View/Authentication%20screens/customer_login.dart';
+import 'package:reltio/Widgets/Text%20widget/BoldText.dart';
+import 'package:reltio/Widgets/Text%20widget/LightText.dart';
 
 class splashscreen extends StatefulWidget {
   const splashscreen({super.key});

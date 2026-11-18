@@ -1,9 +1,11 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
-import 'package:reltio/Widgets/BoldText.dart';
+import 'package:reltio/Widgets/Text%20widget/BoldText.dart';
 import 'package:reltio/Theme/colors.dart';
-import 'package:reltio/Widgets/LightText.dart';
+import 'package:reltio/Widgets/Text%20widget/LightText.dart';
+import 'package:reltio/Widgets/Authentication%20widget/adminLoginForm.dart';
+import 'package:reltio/Widgets/Authentication%20widget/customerLoginForm.dart';
 
 class CustomerLogin extends StatefulWidget {
   const CustomerLogin({super.key});
@@ -21,16 +23,17 @@ class _CustomerLoginState extends State<CustomerLogin> {
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
+        
         children: [
           // ................logo container.....
           Padding(
-            padding: const EdgeInsets.only(top: 100,left: 40),
+            padding: const EdgeInsets.only(top: 160,left: 37),
             child: Container(
               height: 90,
               width: 90,
               decoration: BoxDecoration(
               image: DecorationImage(image: AssetImage("assets/images/logo.png")),
-              borderRadius: BorderRadius.circular(10)
+              borderRadius: BorderRadius.circular(20)
             
               ),
             ),
@@ -41,8 +44,8 @@ class _CustomerLoginState extends State<CustomerLogin> {
           Padding(
             padding: const EdgeInsets.only(left: 40),
             child: BoldText(text: "Welcome Back",
-            color: AppColor.navyDeep ,
-            size: 30,
+            color: AppColor.navy ,
+            size: 25,
             ),
           ),
            SizedBox(height: 4,),
@@ -64,10 +67,10 @@ class _CustomerLoginState extends State<CustomerLogin> {
 
            // outer container..................
            child: Container(
-            height: 50,
+            height: 70,
             width: 400,
             decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 222, 222, 221),
+            color: AppColor.white,
             borderRadius: BorderRadius.circular(15)
            
             ),
@@ -84,16 +87,16 @@ class _CustomerLoginState extends State<CustomerLogin> {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 17),
                     child: Container(
-                      height: 40,
+                      height: 60,
                       width: 180,
                       decoration: BoxDecoration(
                       color: isCustomer   // after selection color changing logic
                       ?AppColor.gold
-                      :const Color.fromARGB(255, 166, 136, 62),
+                      :AppColor.border,
                       borderRadius: BorderRadius.circular(10)
                     
                       ),
-                     child: Center(child: BoldText(text: "Customer",color: AppColor.navyDeep,size: 17,)),
+                     child: Center(child: BoldText(text: "Customer",color: AppColor.navyDeep,size: 18,)),
                   
                     ),
                   ),
@@ -108,17 +111,17 @@ class _CustomerLoginState extends State<CustomerLogin> {
                     });
                   },
                   child: Container(
-                    height: 40,
+                    height: 60,
                     width: 180,
                     decoration: BoxDecoration(
                     color: isCustomer
                      
-                    ?const Color.fromARGB(255, 166, 136, 62)
+                    ?AppColor.border
                     : AppColor.gold,
                 
                     borderRadius: BorderRadius.circular(10),
                     ),
-                    child: Center(child: BoldText(text: "Admin",color: AppColor.textMuted,size: 17,)),
+                    child: Center(child: BoldText(text: "Admin",color: AppColor.textMuted,size: 18,)),
                   ),
                 )
               ],
@@ -126,7 +129,13 @@ class _CustomerLoginState extends State<CustomerLogin> {
            ),
          )
 
-        
+         ,
+          SizedBox(height: 20),
+          if(isCustomer)
+           Customerloginform()
+          else
+           Adminloginform()
+            
         
         
         ],

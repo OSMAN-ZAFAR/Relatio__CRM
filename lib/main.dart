@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:reltio/Theme/app_theme.dart';
-import 'View/Intro_Page/splashscreen.dart';
-import 'View/Intro_Page/customer_login.dart';
+import 'View/splashscreen.dart';
+import 'View/Authentication screens/customer_login.dart';
 void main(){
   runApp(MyApp());
 }
