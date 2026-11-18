@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:reltio/Theme/app_theme.dart';
 import 'View/Intro_Page/splashscreen.dart';
-
+import 'View/Intro_Page/customer_login.dart';
 void main(){
   runApp(MyApp());
 }

@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:reltio/Theme/colors.dart';
+import 'package:reltio/View/Intro_Page/customer_login.dart';
 import 'package:reltio/Widgets/BoldText.dart';
 import 'package:reltio/Widgets/LightText.dart';
 
@@ -42,10 +43,11 @@ class _splashscreenState extends State<splashscreen>
       // duration of the animations
     );
 
-    // 1. Logo: pop + fade (0.0s - 0.7s)
+    // 1. Logo animation:
+     
     _logoScale = Tween<double>(
       begin: 0.6,
-      // by changing these values
+      // by changing these value you can change the animation also
       end: 1.0,
     ).animate(
       CurvedAnimation(
@@ -72,7 +74,8 @@ class _splashscreenState extends State<splashscreen>
       ),
     );
 
-    // 2. Relatio: rise + fade (starts after 0.35s)
+    // 2. Relatio animation:
+    // 
     _titleSlide = Tween<Offset>(
       begin: const Offset(0, 0.15),
       end: Offset.zero,
@@ -101,7 +104,7 @@ class _splashscreenState extends State<splashscreen>
       ),
     );
 
-    // 3. First gold line: grow horizontally (starts after 0.7s)
+    // 3. First gold line:
     _lineWidth = Tween<double>(
       begin: 0.0,
       end: 1.0,
@@ -110,13 +113,13 @@ class _splashscreenState extends State<splashscreen>
         parent: _controller,
         curve: const Interval(
           0.28,
-          0.48,
+         0.48,
           curve: Curves.easeOut,
         ),
       ),
     );
 
-    // 4. Tagline: rise + fade (starts after 0.9s)
+    // 4. Tagline: 
     _taglineSlide = Tween<Offset>(
       begin: const Offset(0, 0.15),
       end: Offset.zero,
@@ -145,7 +148,7 @@ class _splashscreenState extends State<splashscreen>
       ),
     );
 
-    // 5. Last gold container: loading bar (starts after 2s)
+    // 5. Last gold container: 
     _loadingWidth = Tween<double>(
       begin: 0.0,
       end: 1.0,
@@ -160,7 +163,17 @@ class _splashscreenState extends State<splashscreen>
       ),
     );
 
-    _controller.forward();
+   _controller.forward().then((_) {
+  if (!mounted) return;
+
+  Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(
+      builder: (context) => const CustomerLogin(),
+    ),
+  );
+});
+    
   }
 
   @override
